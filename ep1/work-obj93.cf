@@ -1,0 +1,10 @@
+v 4
+file . "ep1a4.vhd" "9b8002b1743ab6bae5b044bb2c4f304d8647ef63" "20220917233345.286":
+  entity ram at 1( 0) + 0 on 15;
+  architecture ram_func of ram at 17( 307) + 0 on 16;
+file . "ep1a1.vhd" "c68998c6d0a32231a694a7489a04b3e9e82fb45f" "20220917225225.529":
+  entity rom_simples at 1( 0) + 0 on 11;
+  architecture rom_arch of rom_simples at 11( 184) + 0 on 12;
+file . "ep1a2.vhd" "dfb7404d61b15e0efcc8a0b599b408d822173270" "20220917230806.497":
+  entity rom_arquivo at 1( 0) + 0 on 13;
+  architecture rom_arquivo_func of rom_arquivo at 12( 204) + 0 on 14;
