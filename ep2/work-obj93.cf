@@ -1,7 +1,14 @@
 v 4
+file . "ep2a3.vhd" "e556b59f375d7a9222be5a21903fa214a2d3f33a" "20221015214355.665":
+  entity fa at 1( 0) + 0 on 69;
+  architecture behavior of fa at 11( 139) + 0 on 70;
+  entity somador at 17( 302) + 0 on 71;
+  architecture behavior of somador at 31( 573) + 0 on 72;
+  entity calc at 50( 1182) + 0 on 73;
+  architecture calc_arch of calc at 65( 1478) + 0 on 74;
 file . "ep2a1.vhd" "6671270a1ca1a7b3b4de0dc81320cf6da05b61e1" "20221009204625.039":
   entity reg at 1( 0) + 0 on 13;
   architecture reg_arch of reg at 17( 297) + 0 on 14;
-file . "ep2a2.vhd" "ef7b25d30a530ab178b77b001a6ca01c321e32ef" "20221010163842.121":
-  entity regfile at 1( 0) + 0 on 21;
-  architecture regfile_arch of regfile at 21( 473) + 0 on 22;
+file . "ep2a2.vhd" "fc4334d7f5c4118b8adfa9271f681b1a4583e856" "20221015185135.375":
+  entity regfile at 1( 0) + 0 on 31;
+  architecture regfile_arch of regfile at 21( 473) + 0 on 32;
