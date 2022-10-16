@@ -10,9 +10,10 @@ end fa;
 
 architecture behavior of fa is
     begin
-        s <= op1 xor op2 xor cin;
+        s <= (op1 xor op2) xor cin;
         cout <= (op1 and op2) or (op1 and cin) or (op2 and cin);
     end architecture;
+
 
 library ieee;
 use ieee.numeric_bit.all;
@@ -46,6 +47,48 @@ architecture behavior of somador is
         end generate;
         couts <= couts_o;
     end architecture;
+
+    
+library ieee;
+use ieee.numeric_bit.all;
+use ieee.math_real.ceil;
+use ieee.math_real.log2;
+
+entity regfile is
+    generic(
+        regn: natural := 32;
+        wordSize: natural := 64
+    );
+    port(
+        clock: in bit;
+        reset: in bit;
+        regWrite: in bit;
+        rr1, rr2, wr: in bit_vector(natural(ceil(log2(real(regn))))-1 downto 0);
+        d: in bit_vector(wordSize-1 downto 0);
+        q1, q2: out bit_vector(wordSize-1 downto 0)
+    );
+end regfile;
+
+architecture regfile_arch of regfile is
+    type register_data is array(0 to regn-1) of bit_vector(wordSize-1 downto 0);
+    signal registers : register_data;
+    begin
+        p0: process(clock, reset)
+        begin
+            if (reset = '1') then
+                for i in regn-1 downto 0 loop
+                    registers(i) <= (others => '0');
+                end loop;
+            elsif (clock'event) and (clock = '1') then
+                if (regWrite = '1') and (to_integer(unsigned(wr)) /= regn-1) then
+                    registers(to_integer(unsigned(wr))) <= d;
+                end if;
+            end if;
+        end process;
+        q1 <= registers(to_integer(unsigned(rr1)));
+        q2 <= registers(to_integer(unsigned(rr2)));
+    end architecture;
+
 
 library ieee;
 use ieee.numeric_bit.all;
@@ -102,6 +145,9 @@ architecture calc_arch of calc is
         op1_reg <= instruction(9 downto 5); 
         op2_reg <= instruction(14 downto 10);
         dest_reg <= instruction(4 downto 0);
+        op2_value_immediate <= "00000000000" & op2_reg when op2_reg(4) = '0' else
+                               "11111111111" & op2_reg when op2_reg(4) = '1' else
+                                (others => '0');
         op2_value <= op2_value_register when instruction(15) = '1' else
                      op2_value_immediate when instruction(15) = '0' else
                      (others => '0');
