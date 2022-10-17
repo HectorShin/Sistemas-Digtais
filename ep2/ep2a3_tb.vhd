@@ -32,11 +32,33 @@ architecture tb of calc_tb is
 
         p0: process is
         begin
-            instruction_in <= "0101001111111111";
+            instruction_in <= "0000101111100010"; -- Soma imediato 2 com X31 (sempre vale 0) e armazena em X2
             wait for 1 ns;
-            instruction_in <= "1111101111111110";
+            instruction_in <= "0000011111100001"; -- Soma imediato 1 com X31 (sempre vale 0) e armazena em X1
             wait for 1 ns;
-            assert q1_out = "0000000000010100" report "erro";
+            instruction_in <= "1000100000100000"; -- Soma X1 com X2 e armazena em X0
+			wait for 1 ns;
+			instruction_in <= "0000000000000011"; -- Soma 0 com X0 (que vale 3) e armazena em X3
+			wait for 0.75 ns;
+			instruction_in <= "1111110000100100"; -- Soma X31 (sempre vale 0) com X1 (que vale 1) e armazena em X4
+			wait for 0.25 ns;
+			instruction_in <= "1000100001000101"; -- Soma X2 com X2 (que vale 2) e armazena em X5
+			wait for 1 ns;
+			instruction_in <= "0001000000111110";
+			wait for 1 ns;
+			reset_in <= '1';
+			wait for 0.75 ns;
+			reset_in <= '0';
+			wait for 0.25 ns;
+			instruction_in <= "0000001111011111";
+			wait for 1 ns;
+			instruction_in <= "0000101111100010";
+			wait for 1 ns;
+			instruction_in <= "0111111111100001";
+			wait for 1 ns;
+			instruction_in <= "1000100000100011";
+			wait for 1 ns;
+			instruction_in <= "0000000001111111";
             wait;
         end process;
 
