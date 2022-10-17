@@ -133,15 +133,16 @@ architecture calc_arch of calc is
     signal op1_reg : bit_vector(4 downto 0); -- registrador em que fica armazenado o operando 1
     signal op2_reg : bit_vector(4 downto 0); -- registrador em que fica armazenado o operando 2
     signal dest_reg : bit_vector(4 downto 0); -- registrador em que fica armazenado o resultado
-    signal s_out : bit_vector(15 downto 0); -- resultado da soma
+    signal somador_out : bit_vector(15 downto 0); -- resultado da soma no somador
+	--signal resultado : bit_vector(15 downto 0);
     signal op1_value : bit_vector(15 downto 0); -- valor do operando 1
     signal op2_value_register : bit_vector(15 downto 0); -- valor do operando 2 se opcode for 1
     signal op2_value_immediate : bit_vector(15 downto 0); -- valor do operando 2 se opcode for 0
     signal op2_value : bit_vector(15 downto 0); -- valor do operando 2
     signal couts_o : bit_vector(15 downto 0); -- vetor de carry out
     begin
-        registers_file : regfile generic map(32, 16) port map(clock, reset, '1', op1_reg, op2_reg, dest_reg, s_out, op1_value, op2_value_register);
-        sum: somador generic map(16) port map(op1_value, op2_value, '0', s_out, couts_o);
+        registers_file : regfile generic map(32, 16) port map(clock, reset, '1', op1_reg, op2_reg, dest_reg, somador_out, op1_value, op2_value_register);
+		sum: somador generic map(16) port map(op1_value, op2_value, '0', somador_out, couts_o);
         op1_reg <= instruction(9 downto 5); 
         op2_reg <= instruction(14 downto 10);
         dest_reg <= instruction(4 downto 0);
@@ -151,6 +152,6 @@ architecture calc_arch of calc is
         op2_value <= op2_value_register when instruction(15) = '1' else
                      op2_value_immediate when instruction(15) = '0' else
                      (others => '0');
-        q1 <= s_out;
-        overflow <= '1' when op1_value(15) = op2_value(15) and s_out(15) = not op1_value(15);
+        q1 <= op1_value;
+        overflow <= '1' when op1_value(15) = op2_value(15) and somador_out(15) = not op1_value(15);
     end architecture;
