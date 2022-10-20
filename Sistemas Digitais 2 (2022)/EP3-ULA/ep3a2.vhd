@@ -59,7 +59,7 @@ entity alu is
         F: out bit_vector(size-1 downto 0); -- outputs
         S: in bit_vector(3 downto 0); -- op selection
         Z: out bit; -- zero flag
-        Ov : out bit; -- overflw flag
+        Ov : out bit; -- overflow flag
         Co: out bit -- carry out
     );
 end entity alu;
@@ -87,11 +87,10 @@ architecture alu_arch of alu is
                  '0';
         soma : somador generic map(size) port map(A, s_b_tratado, s_cin, s_fadd, s_cout);
         zero <= (others=>'0');
-        s_and <= A and B;
-        s_or <= A or B;
+        s_and <= A and s_b_tratado;
+        s_or <= A or s_b_tratado;
         s_nor <= not s_or;
-        Co <= s_cout when (S = "0010" or S="0110") else
-                '0';
+        Co <= s_cout;
         F <= resultado;
         Z <= '1' when resultado = zero else '0';
         comparador_for: for i in size-2 downto 0 generate
@@ -108,5 +107,6 @@ architecture alu_arch of alu is
                          s_comparador when "0111",
                          s_nor when "1100",
                          zero when others;
-        Ov <= '1' when (A(size-1) = B(size-1) and s_fadd(size-1) = not(A(size-1)) and S = "0010") or (A(size-1) = not(B(size-1)) and s_fadd(size-1) = not(A(size-1)) and S = "0110") else '0';
+        Ov <= '1' when (A(size-1) = s_b_tratado(size-1) and s_fadd(size-1) = not(A(size-1))) else
+              '0';
     end architecture;
