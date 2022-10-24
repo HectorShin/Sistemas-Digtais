@@ -1,5 +1,5 @@
 $date
-  Mon Oct 24 10:29:48 2022
+  Mon Oct 24 11:09:46 2022
 $end
 $version
   GHDL v0
@@ -25,60 +25,61 @@ $var reg 1 . ov $end
 $var reg 1 / co $end
 $var reg 4 0 s_and[3:0] $end
 $var reg 4 1 s_or[3:0] $end
-$var reg 4 2 s_b_tratado[3:0] $end
-$var reg 4 3 s_fadd[3:0] $end
-$var reg 4 4 s_nor[3:0] $end
-$var reg 4 5 comparador[3:0] $end
-$var reg 4 6 s_comparador[3:0] $end
-$var reg 4 7 resultado[3:0] $end
-$var reg 4 8 zero[3:0] $end
-$var reg 1 9 s_cin $end
-$var reg 1 : s_cout $end
+$var reg 4 2 s_a_tratado[3:0] $end
+$var reg 4 3 s_b_tratado[3:0] $end
+$var reg 4 4 s_fadd[3:0] $end
+$var reg 4 5 s_nor[3:0] $end
+$var reg 4 6 comparador[3:0] $end
+$var reg 4 7 s_comparador[3:0] $end
+$var reg 4 8 resultado[3:0] $end
+$var reg 4 9 zero[3:0] $end
+$var reg 1 : s_cin $end
+$var reg 1 ; s_cout $end
 $scope module soma $end
-$var reg 4 ; a[3:0] $end
-$var reg 4 < b[3:0] $end
-$var reg 1 = cin $end
-$var reg 4 > s[3:0] $end
-$var reg 1 ? cout $end
-$var reg 5 @ temp[4:0] $end
+$var reg 4 < a[3:0] $end
+$var reg 4 = b[3:0] $end
+$var reg 1 > cin $end
+$var reg 4 ? s[3:0] $end
+$var reg 1 @ cout $end
+$var reg 5 A temp[4:0] $end
 $scope module (0) $end
 $scope module fa_i $end
-$var reg 1 A a $end
-$var reg 1 B b $end
-$var reg 1 C cin $end
-$var reg 1 D s $end
-$var reg 1 E cout $end
-$var reg 1 F axorb $end
+$var reg 1 B a $end
+$var reg 1 C b $end
+$var reg 1 D cin $end
+$var reg 1 E s $end
+$var reg 1 F cout $end
+$var reg 1 G axorb $end
 $upscope $end
 $upscope $end
 $scope module (1) $end
 $scope module fa_i $end
-$var reg 1 G a $end
-$var reg 1 H b $end
-$var reg 1 I cin $end
-$var reg 1 J s $end
-$var reg 1 K cout $end
-$var reg 1 L axorb $end
+$var reg 1 H a $end
+$var reg 1 I b $end
+$var reg 1 J cin $end
+$var reg 1 K s $end
+$var reg 1 L cout $end
+$var reg 1 M axorb $end
 $upscope $end
 $upscope $end
 $scope module (2) $end
 $scope module fa_i $end
-$var reg 1 M a $end
-$var reg 1 N b $end
-$var reg 1 O cin $end
-$var reg 1 P s $end
-$var reg 1 Q cout $end
-$var reg 1 R axorb $end
+$var reg 1 N a $end
+$var reg 1 O b $end
+$var reg 1 P cin $end
+$var reg 1 Q s $end
+$var reg 1 R cout $end
+$var reg 1 S axorb $end
 $upscope $end
 $upscope $end
 $scope module (3) $end
 $scope module fa_i $end
-$var reg 1 S a $end
-$var reg 1 T b $end
-$var reg 1 U cin $end
-$var reg 1 V s $end
-$var reg 1 W cout $end
-$var reg 1 X axorb $end
+$var reg 1 T a $end
+$var reg 1 U b $end
+$var reg 1 V cin $end
+$var reg 1 W s $end
+$var reg 1 X cout $end
+$var reg 1 Y axorb $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -102,57 +103,58 @@ b0000 ,
 1/
 b1000 0
 b1101 1
-b1000 2
-b0101 3
-b0010 4
-b0000 5
+b1101 2
+b1000 3
+b0101 4
+b1000 5
 b0000 6
-b1000 7
-b0000 8
-09
-1:
-b1101 ;
-b1000 <
-0=
-b0101 >
-1?
-b10000 @
-1A
-0B
+b0000 7
+b1000 8
+b0000 9
+0:
+1;
+b1101 <
+b1000 =
+0>
+b0101 ?
+1@
+b10000 A
+1B
 0C
-1D
-0E
-1F
-0G
+0D
+1E
+0F
+1G
 0H
 0I
 0J
 0K
 0L
-1M
-0N
+0M
+1N
 0O
-1P
-0Q
-1R
+0P
+1Q
+0R
 1S
 1T
-0U
+1U
 0V
-1W
-0X
+0W
+1X
+0Y
 #10000000
 b0001 #
 b1101 $
 b1101 +
 b0001 ,
-b1101 7
+b1101 8
 #20000000
 b0010 #
 b0101 $
 b0101 +
 b0010 ,
-b0101 7
+b0101 8
 #30000000
 b0110 #
 b0101 $
@@ -164,35 +166,35 @@ b0110 ,
 1/
 b0101 0
 b1111 1
-b0111 2
-b0101 3
-b0000 4
-b0001 6
-b0101 7
-19
+b0111 3
+b0101 4
+b0101 5
+b0001 7
+b0101 8
 1:
-b0111 <
-1=
-b0101 >
-1?
-b11111 @
-1B
+1;
+b0111 =
+1>
+b0101 ?
+1@
+b11111 A
 1C
-1E
-0F
-1H
+1D
+1F
+0G
 1I
-1K
+1J
 1L
-1N
+1M
 1O
 1P
 1Q
-0R
-0T
-1U
-1W
+1R
+0S
+0U
+1V
 1X
+1Y
 #40000000
 b0111 #
 b0000 $
@@ -204,41 +206,73 @@ b0111 ,
 1.
 b1000 0
 b1101 1
-b1000 2
-b0101 3
-b0010 4
-b0000 6
+b1000 3
+b0101 4
+b1000 5
 b0000 7
-09
-b1000 <
-0=
-b0101 >
-b10000 @
-0B
+b0000 8
+0:
+b1000 =
+0>
+b0101 ?
+b10000 A
 0C
-0E
-1F
-0H
+0D
+0F
+1G
 0I
-0K
+0J
 0L
-0N
+0M
 0O
-1P
-0Q
-1R
-1T
-0U
+0P
+1Q
+0R
+1S
+1U
 0V
-0X
+0W
+0Y
 #50000000
 b1100 #
 b0010 $
 0%
+1&
+0'
 b0010 +
 b1100 ,
 0-
-b0010 7
+1.
+0/
+b0010 0
+b0111 1
+b0010 2
+b0111 3
+b1001 4
+b0010 5
+b0001 7
+b0010 8
+0;
+b0010 <
+b0111 =
+b1001 ?
+0@
+b01100 A
+0B
+1C
+1H
+1I
+1L
+0N
+1O
+1P
+0Q
+1R
+0T
+0U
+1V
+1W
+0X
 #60000000
 b0001 !
 b1010 "
@@ -256,26 +290,33 @@ b0000 ,
 0/
 b0000 0
 b1011 1
-b1010 2
-b1011 3
-b0100 4
+b0001 2
+b1010 3
+b1011 4
+b0000 5
 b0000 7
-0:
-b0001 ;
-b1010 <
-b1011 >
-0?
-b00000 @
-1H
-1J
-1L
-0M
+b0000 8
+0;
+b0001 <
+b1010 =
+b1011 ?
+0@
+b00000 A
+1B
+0C
+0H
+1K
+0L
+1M
+0O
 0P
 0R
 0S
-1V
-0W
-1X
+1U
+0V
+1W
+0X
+1Y
 #70000000
 b0001 #
 b1011 $
@@ -283,7 +324,7 @@ b1011 $
 b1011 +
 b0001 ,
 0-
-b1011 7
+b1011 8
 #80000000
 b0010 #
 b0010 ,
@@ -296,29 +337,29 @@ b0110 ,
 0.
 b0001 0
 b0101 1
-b0101 2
-b0111 3
-b1010 4
-b0001 6
-b0111 7
-19
-b0101 <
-1=
-b0111 >
-b00011 @
-1B
+b0101 3
+b0111 4
+b0001 5
+b0001 7
+b0111 8
+1:
+b0101 =
+1>
+b0111 ?
+b00011 A
 1C
-1E
-0F
-0H
-1I
-0L
-1N
-1P
-1R
-0T
-0V
-0X
+1D
+1F
+0G
+0I
+1J
+0M
+1O
+1Q
+1S
+0U
+0W
+0Y
 #100000000
 b0111 #
 b0000 $
@@ -328,62 +369,100 @@ b0111 ,
 1-
 b0000 0
 b1011 1
-b1010 2
-b1011 3
-b0100 4
-b0000 6
+b1010 3
+b1011 4
+b0000 5
 b0000 7
-09
-b1010 <
-0=
-b1011 >
-b00000 @
-0B
+b0000 8
+0:
+b1010 =
+0>
+b1011 ?
+b00000 A
 0C
-0E
-1F
-1H
-0I
-1L
-0N
-0P
-0R
-1T
-1V
-1X
+0D
+0F
+1G
+1I
+0J
+1M
+0O
+0Q
+0S
+1U
+1W
+1Y
 #110000000
 b1100 #
 b0100 $
 0%
+1'
 b0100 +
 b1100 ,
 0-
-b0100 7
+1/
+b0100 0
+b1111 1
+b1110 2
+b0101 3
+b0011 4
+b0100 5
+b0001 7
+b0100 8
+1;
+b1110 <
+b0101 =
+b0011 ?
+1@
+b11000 A
+0B
+1C
+1H
+0I
+1N
+1O
+1R
+1T
+0U
+1V
+0W
+1X
 #120000000
 b0110 "
 b0000 #
 b0000 $
 1%
-0&
+0'
 b0110 *
 b0000 +
 b0000 ,
 1-
-0.
+0/
+b0000 0
 b0111 1
-b0110 2
-b0111 3
-b1000 4
-b0001 6
-b0000 7
-b0110 <
-b0111 >
-1N
-1P
-1R
+b0001 2
+b0110 3
+b0111 4
+b0000 5
+b0000 8
+0;
+b0001 <
+b0110 =
+b0111 ?
+0@
+b00000 A
+1B
+0C
+0H
+1I
+0N
+1Q
+0R
+1S
 0T
 0V
 0X
+0Y
 #130000000
 b0001 #
 b0111 $
@@ -391,7 +470,7 @@ b0111 $
 b0111 +
 b0001 ,
 0-
-b0111 7
+b0111 8
 #140000000
 b0010 #
 b0010 ,
@@ -402,29 +481,29 @@ b1011 +
 b0110 ,
 b0001 0
 b1001 1
-b1001 2
-b1011 3
-b0110 4
-b0000 6
-b1011 7
-19
-b1001 <
-1=
-b1011 >
-b00011 @
-1B
+b1001 3
+b1011 4
+b0001 5
+b0000 7
+b1011 8
+1:
+b1001 =
+1>
+b1011 ?
+b00011 A
 1C
-1E
-0F
-0H
-1I
-0L
-0N
-0P
-0R
-1T
-1V
-1X
+1D
+1F
+0G
+0I
+1J
+0M
+0O
+0Q
+0S
+1U
+1W
+1Y
 #160000000
 b0111 #
 b0001 $
@@ -436,77 +515,109 @@ b0111 ,
 0.
 b0000 0
 b0111 1
-b0110 2
-b0111 3
-b1000 4
-b0001 6
+b0110 3
+b0111 4
+b0000 5
 b0001 7
-09
-b0110 <
-0=
-b0111 >
-b00000 @
-0B
+b0001 8
+0:
+b0110 =
+0>
+b0111 ?
+b00000 A
 0C
-0E
-1F
-1H
-0I
-1L
-1N
-1P
-1R
-0T
-0V
-0X
+0D
+0F
+1G
+1I
+0J
+1M
+1O
+1Q
+1S
+0U
+0W
+0Y
 #170000000
 b1100 #
 b1000 $
+0%
+1&
+1'
 b1000 +
 b1100 ,
-b1000 7
+0-
+1.
+1/
+b1000 0
+b1111 1
+b1110 2
+b1001 3
+b1000 5
+b0000 7
+b1000 8
+1;
+b1110 <
+b1001 =
+1@
+b10000 A
+0B
+1C
+1H
+0I
+1N
+0O
+1T
+1U
+1X
 #180000000
 b1010 !
 b0000 #
 b0010 $
-0%
+0&
 1'
 b1010 )
 b0010 +
 b0000 ,
-0-
+0.
 1/
 b0010 0
 b1110 1
-b0000 3
-b0001 4
-b0010 7
-1:
-b1010 ;
-b0000 >
-1?
-b11100 @
-0A
-0D
-0F
-1G
-0J
-1K
-0L
+b1010 2
+b0110 3
+b0000 4
+b0010 5
+b0001 7
+b0010 8
+1;
+b1010 <
+b0110 =
+b0000 ?
+1@
+b11100 A
+0C
+0E
+0G
+1I
+0K
+1L
+0M
+0N
 1O
-0P
-1Q
-1S
-1U
-0V
-1W
+1P
+0Q
+1R
+0U
+1V
+0W
 1X
+1Y
 #190000000
 b0001 #
 b1110 $
 b1110 +
 b0001 ,
-b1110 7
+b1110 8
 #200000000
 b0010 #
 b0000 $
@@ -514,7 +625,7 @@ b0000 $
 b0000 +
 b0010 ,
 1-
-b0000 7
+b0000 8
 #210000000
 b0110 #
 b0100 $
@@ -526,34 +637,34 @@ b0110 ,
 1.
 b1000 0
 b1011 1
-b1001 2
-b0100 3
+b1001 3
 b0100 4
-b0000 6
-b0100 7
-19
-b1001 <
-1=
-b0100 >
-b10111 @
-1B
+b1000 5
+b0000 7
+b0100 8
+1:
+b1001 =
+1>
+b0100 ?
+b10111 A
 1C
-1E
+1D
 1F
-0H
-1I
-0J
-1K
+1G
+0I
+1J
+0K
 1L
-0N
-1O
+1M
+0O
 1P
-0Q
+1Q
 0R
-1T
-0U
+0S
+1U
 0V
-0X
+0W
+0Y
 #220000000
 b0111 #
 b0001 $
@@ -567,36 +678,72 @@ b0111 ,
 1/
 b0010 0
 b1110 1
-b0110 2
-b0000 3
-b0001 4
-b0001 6
+b0110 3
+b0000 4
+b0010 5
 b0001 7
-09
-1:
-b0110 <
-0=
-b0000 >
-1?
-b11100 @
-0B
+b0001 8
+0:
+1;
+b0110 =
+0>
+b0000 ?
+1@
+b11100 A
 0C
-0E
+0D
 0F
-1H
-0I
+0G
+1I
 0J
+0K
+0M
+1O
+0Q
+1R
+1S
+0U
+1V
+0W
+1X
+1Y
+#230000000
+b1100 #
+b0001 $
+0'
+b0001 +
+b1100 ,
+0/
+b0001 0
+b1101 1
+b0101 2
+b1001 3
+b1110 4
+b0001 5
+b0000 7
+b0001 8
+0;
+b0101 <
+b1001 =
+b1110 ?
+0@
+b00010 A
+1B
+1C
+1F
+0H
+0I
+1J
+1K
 0L
 1N
+0O
 0P
 1Q
-1R
+0R
 0T
 1U
 0V
 1W
-1X
-#230000000
-b1100 #
-b1100 ,
+0X
 #240000000
