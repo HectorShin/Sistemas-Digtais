@@ -21,7 +21,7 @@ use ieee.numeric_bit.all;
 
 entity somador is
     generic (
-        size : natural := 10
+        size : natural := 10 
     );
     port (
         a, b : in bit_vector(size-1 downto 0);
@@ -81,8 +81,8 @@ architecture alu_arch of alu is
     signal zero : bit_vector(size-1 downto 0);
     signal s_cin, s_cout: bit;
     begin
-        s_b_tratado <= B when S = "0010" else
-                        not(B) when S = "0110";
+        s_b_tratado <= not(B) when S = "0110" else
+                       B;
         s_cin <= '1' when S = "0110" else
                  '0';
         soma : somador generic map(size) port map(A, s_b_tratado, s_cin, s_fadd, s_cout);
@@ -94,17 +94,18 @@ architecture alu_arch of alu is
         F <= resultado;
         Z <= '1' when resultado = zero else '0';
         comparador_for: for i in size-2 downto 0 generate
-            comparador(i) <= '1' when A(i) = '1' and B(i) = '0' else
+            comparador(i) <= '1' when A(i) = '1' and s_b_tratado(i) = '0' else
                              '0';
         end generate;
-        s_comparador <= bit_vector(to_unsigned(1, size)) when (comparador = not zero or (A(size) = '1' and B(size) = '0')) else
+        comparador(size-1) <= '0';
+        s_comparador <= bit_vector(to_unsigned(1, size)) when (comparador = zero or (A(size-1) = '1' and s_b_tratado(size-1) = '0')) else
                         (others => '0');
         with S select
             resultado <= s_and when "0000",
                          s_or when "0001",
                          s_fadd when "0010",
                          s_fadd when "0110",
-                         s_comparador when "0111",
+                         comparador when "0111",
                          s_nor when "1100",
                          zero when others;
         Ov <= '1' when (A(size-1) = s_b_tratado(size-1) and s_fadd(size-1) = not(A(size-1))) else
