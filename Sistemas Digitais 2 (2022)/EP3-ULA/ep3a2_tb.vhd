@@ -101,6 +101,21 @@ begin
     S_in <= "1100"; -- Esperado : F = 1000
     wait for 10 ns;
 
+    A_in <= "1010"; -- -6
+    B_in <= "0110"; -- 6
+    S_in <= "0000"; -- Esperado : F = 0000
+    wait for 10 ns;
+    S_in <= "0001"; -- Esperado : F = 0111
+    wait for 10 ns;
+    S_in <= "0010"; -- Esperado : F = 0111 ; Ov = 0
+    wait for 10 ns;
+    S_in <= "0110"; -- Esperado : F = 1011 ; Ov = 0
+    wait for 10 ns;
+    S_in <= "0111"; -- Esperado : F = 0001
+    wait for 10 ns;
+    S_in <= "1100"; -- Esperado : F = 1000
+    wait for 10 ns;
+
 assert false report "Fim das simulacoes" severity note;
     keep_simulating <= '0';
 

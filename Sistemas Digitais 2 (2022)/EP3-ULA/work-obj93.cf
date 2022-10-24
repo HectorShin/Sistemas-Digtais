@@ -1,11 +1,11 @@
 v 4
-file . "ep3a2_tb.vhd" "130c3f6f3dc149197e5c3938d9fcadbc09ebe9f8" "20221024032057.463":
-  entity alu_tb at 1( 0) + 0 on 87;
-  architecture tb of alu_tb at 7( 80) + 0 on 88;
-file . "ep3a2.vhd" "34949549e3092ede4775dc71e43ddfa41b0e853a" "20221024032056.819":
-  entity fulladder at 1( 0) + 0 on 81;
-  architecture structural of fulladder at 11( 153) + 0 on 82;
-  entity somador at 19( 357) + 0 on 83;
-  architecture somador_arch of somador at 34( 650) + 0 on 84;
-  entity alu at 50( 1106) + 0 on 85;
-  architecture alu_arch of alu at 67( 1533) + 0 on 86;
+file . "ep3a2_tb.vhd" "30a4a10481b8132a35308cd32bda02d951dd9233" "20221024132946.711":
+  entity alu_tb at 1( 0) + 0 on 111;
+  architecture tb of alu_tb at 7( 80) + 0 on 112;
+file . "ep3a2.vhd" "51c64c89fe8ef18bd8e62e23b3ffd7b7bd0c91d3" "20221024132946.383":
+  entity fulladder at 1( 0) + 0 on 105;
+  architecture structural of fulladder at 11( 153) + 0 on 106;
+  entity somador at 19( 357) + 0 on 107;
+  architecture somador_arch of somador at 34( 650) + 0 on 108;
+  entity alu at 50( 1106) + 0 on 109;
+  architecture alu_arch of alu at 67( 1533) + 0 on 110;
