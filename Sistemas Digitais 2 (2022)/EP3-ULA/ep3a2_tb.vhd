@@ -60,6 +60,7 @@ begin
     B_in <= "1000";
     S_in <= "0000"; -- Esperado : F = 1000
     wait for 10 ns;
+    assert F = "1000" and Z = '0' and Ov = '1' and Co = '1' report "Esperado: F = 1000 and Z = 0 and Ov = 1 and Co = 1 || Obtido: F = "&bin(F)&" and Z = "&bin(Z)&" and Ov = "&bin(Ov)&" and Co = "&bin(Co)&"";
     S_in <= "0001"; -- Esperado : F = 1101
     wait for 10 ns;
     S_in <= "0010"; -- Esperado : F = 0101 ; Ov = 1
