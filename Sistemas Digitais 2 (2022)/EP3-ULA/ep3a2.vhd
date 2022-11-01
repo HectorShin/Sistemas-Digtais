@@ -83,9 +83,9 @@ architecture alu_arch of alu is
     begin
         s_a_tratado <= not(A) when S = "1100" else
                        A;
-        s_b_tratado <= not(B) when S = "0110" or S = "1100" else
+        s_b_tratado <= not(B) when S = "0110" or S = "1100" or S = "0111" else
                        B;
-        s_cin <= '1' when S = "0110" else
+        s_cin <= '1' when S = "0110" or S = "1100" or S = "0111" else
                  '0';
         soma : somador generic map(size) port map(s_a_tratado, s_b_tratado, s_cin, s_fadd, s_cout);
         zero <= (others=>'0');
@@ -102,7 +102,7 @@ architecture alu_arch of alu is
         --comparador(size-1) <= '0';
         --s_comparador <= bit_vector(to_unsigned(1, size)) when (comparador = zero or (A(size-1) = '1' and s_b_tratado(size-1) = '0')) else
         --                (others => '0');
-        s_comparador <= bit_vector(to_unsigned(1, size)) when to_integer(signed(s_a_tratado)) < to_integer(signed(s_b_tratado)) else
+        s_comparador <= bit_vector(to_unsigned(1, size)) when (to_integer(signed(A)) < to_integer(signed(B))) else
                         (others => '0');
         with S select
             resultado <= s_and when "0000",
